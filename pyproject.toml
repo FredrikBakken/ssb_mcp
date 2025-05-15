@@ -1,0 +1,23 @@
+[project]
+name = "ssb-mcp"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12.10"
+dependencies = [
+    "fastmcp>=2.3.4",
+    "feedparser>=6.0.11",
+    "httpx>=0.28.1",
+    "mcp[cli]>=1.8.1",
+    "pyjstat>=2.4.0",
+]
+
+[project.scripts]
+ssb = "ssb_mcp.main:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
