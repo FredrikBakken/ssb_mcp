@@ -218,6 +218,9 @@ def _recursive_split(variables: list[dict[str, Any]]) -> list[list[dict[str, Any
     return _recursive_split(sub_query1) + _recursive_split(sub_query2)
 
 
-mcp.run(
-    transport="stdio",
-)
+def app():
+    mcp.run(transport="stdio")
+
+
+if __name__ == "__main__":
+    app()
