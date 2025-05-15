@@ -1,6 +1,6 @@
 # SSB MCP
 
-A [model context protocol (MCP)](https://modelcontextprotocol.io/) for communicating with [Statistics Norway / Statistisk sentralbyrå (SSB)](https://www.ssb.no/).
+[Model context protocol (MCP)](https://modelcontextprotocol.io/) for communicating with [Statistics Norway / Statistisk sentralbyrå (SSB)](https://www.ssb.no/).
 
 This MCP server supports the following operations:
 
