@@ -132,7 +132,9 @@ def read_table(table_id: str) -> pd.DataFrame:
 
     for sub_query in queries:
         with httpx.Client() as client:
-            response = client.post(url, json={"query": sub_query, "response": {"format": "json-stat2"}})
+            response = client.post(
+                url, json={"query": sub_query, "response": {"format": "json-stat2"}}
+            )
             response.raise_for_status()
 
         dataset = pyjstat.Dataset.read(response.text)
@@ -172,7 +174,8 @@ def latest_publications(date: str | None = None) -> list[Any]:
 
     if date:
         filtered_entries = [
-            entry for entry in feed.entries
+            entry
+            for entry in feed.entries
             if "ssbrss_date" in entry and entry.ssbrss_date == date
         ]
         return filtered_entries
@@ -202,7 +205,7 @@ def _recursive_split(variables: list[dict[str, Any]]) -> list[list[dict[str, Any
     sub_query1 = [
         {
             "code": variable["code"],
-            "values": (p1 if variable == largest_variable else variable["values"])
+            "values": (p1 if variable == largest_variable else variable["values"]),
         }
         for variable in variables
     ]
@@ -210,7 +213,7 @@ def _recursive_split(variables: list[dict[str, Any]]) -> list[list[dict[str, Any
     sub_query2 = [
         {
             "code": variable["code"],
-            "values": (p2 if variable == largest_variable else variable["values"])
+            "values": (p2 if variable == largest_variable else variable["values"]),
         }
         for variable in variables
     ]

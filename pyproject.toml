@@ -12,6 +12,13 @@ dependencies = [
     "pyjstat>=2.4.0",
 ]
 
+[dependency-groups]
+lint = [
+    "pre-commit>=4.2.0",
+    "ruff>=0.11.10",
+    "ty>=0.0.1a3",
+]
+
 [project.scripts]
 ssb = "ssb_mcp.main:app"
 
@@ -21,3 +28,6 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 packages = ["."]
+
+[tool.ty.rules]
+unresolved-import = "ignore"
